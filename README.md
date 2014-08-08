@@ -1,4 +1,4 @@
-smartlinknetwork
+SmartLink Network v2 API
 ================
 
 A Ruby Gem for integrating with Weathermatic's SmartLink Network via API
