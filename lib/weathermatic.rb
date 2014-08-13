@@ -436,108 +436,140 @@ class WeatherMatic
   # Usage: wm.site_usage(:site_id => 157, :controller_id => [794,750], :range_start => "2014-06-01", :range_end => "2014-07-25", :interval => 'w' )
 
   # Example Response: (all units are in gallons for this site)
-  #   {  
-  #    "meta":{  
+  #   {
+  #    "meta":{
   #       "access":true,
   #       "hmac":true,
   #       "success":true,
-  #       "request":{  
+  #       "request":{
   #          "range_start":"2014-06-01",
   #          "range_end":"2014-07-25",
   #          "interval":"w",
-  #          "controller_id":[  
+  #          "controller_id":[
   #             "794",
   #             "750"
   #          ],
   #          "zone_number":null,
-  #          "timestamp":"1407506612",
+  #          "timestamp":"1407948694",
   #          "action":"usage",
   #          "controller":"api/v2/reports_sites",
   #          "id":"157",
   #          "format":"json",
-  #          "reports_site":{  
+  #          "reports_site":{
 
   #          }
   #       },
   #       "message":null
   #    },
-  #    "result":{  
-  #       "site":{  
+  #    "result":{
+  #       "site":{
   #          "id":157,
   #          "name":"Engineering Dept",
-  #          "controllers":[  
-  #             {  
+  #          "controllers":[
+  #             {
   #                "id":750,
   #                "name":"Andey's",
-  #                "usage":[  
-  #                   {  
+  #                "usage":[
+  #                   {
   #                      "gallons":1512,
+  #                      "seconds_ran":19166,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-06-02"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":1454,
+  #                      "seconds_ran":16980,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-06-09"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":1240,
+  #                      "seconds_ran":19788,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-06-16"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":1620,
+  #                      "seconds_ran":16526,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-06-23"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":1582,
+  #                      "seconds_ran":17794,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-06-30"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":1217,
+  #                      "seconds_ran":15418,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-07-07"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":1357,
+  #                      "seconds_ran":15333,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-07-14"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":454,
+  #                      "seconds_ran":15325,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-07-21"
   #                   }
   #                ]
   #             },
-  #             {  
+  #             {
   #                "id":794,
   #                "name":"Plan-Id Test - 1 year basic",
-  #                "usage":[  
-  #                   {  
+  #                "usage":[
+  #                   {
   #                      "gallons":8306,
+  #                      "seconds_ran":32978,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-06-02"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":9015,
+  #                      "seconds_ran":38352,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-06-09"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":8068,
+  #                      "seconds_ran":35777,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-06-16"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":8564,
+  #                      "seconds_ran":34419,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-06-23"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":8693,
+  #                      "seconds_ran":38603,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-06-30"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":7871,
+  #                      "seconds_ran":37822,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-07-07"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":5892,
+  #                      "seconds_ran":33325,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-07-14"
   #                   },
-  #                   {  
+  #                   {
   #                      "gallons":949,
+  #                      "seconds_ran":29000,
+  #                      "realtime_average_flow":null,
   #                      "date":"2014-07-21"
   #                   }
   #                ]
