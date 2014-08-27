@@ -588,7 +588,7 @@ class WeatherMatic
                       "zone_number" => params[:zone_number],
                       "timestamp" => Time.now.to_i.to_s
                     })
-    uri = parse_uri(@base_uri+"/api/v2/reports/sites/"+params[:site_id].to_s+"/usage.json?" + data)
+    uri = parse_uri(@base_uri+"/api/v2/sites/"+params[:site_id].to_s+"/report/usage.json?" + data)
     @request = make_get(uri)
     make_request(uri,@request)
   end
@@ -688,7 +688,7 @@ class WeatherMatic
                       "controller_id[]" => params[:controller_id],
                       "timestamp" => Time.now.to_i.to_s
                     })
-    uri = parse_uri(@base_uri+"/api/v2/reports/sites/"+params[:site_id].to_s+"/weather.json?"+data)
+    uri = parse_uri(@base_uri+"/api/v2/sites/"+params[:site_id].to_s+"/report/weather.json?"+data)
     @request = make_get(uri)
     make_request(uri,@request)
   end
@@ -696,7 +696,6 @@ class WeatherMatic
   # Example
   # params[:range_start] should be passed as 'YYYY-MM-DD' as the start date (on and after) you would like a usage report from
   # params[:range_end] should be passed as 'YYYY-MM-DD' as the end date (on and before) you would like the usage report from
-  # params[:interval] *optional* w = Weekly Intervals, m = Monthly Intervals, y = Yearly Intervals.  SUM of the usage by Interval passed
   # params[:controller_id] *optional* pass a specific controller ID or an array of controller IDs with the request to get controller usage instead of entire SITE usage
   # params[:zone_number] *optional* pass a specific zone number or an array of zone numbers with the request to get zone usage instead of entire SITE usage (DEPENDS ON SINGLE CONTROLLER ID ALSO BEING PASSED)
 
@@ -711,7 +710,6 @@ class WeatherMatic
   #       "request":{  
   #          "range_start":"2013-12-01",
   #          "range_end":"2013-12-30",
-  #          "interval":null,
   #          "controller_id":[  
   #             "699",
   #             "700"
@@ -881,16 +879,14 @@ class WeatherMatic
     data = URI.encode_www_form({
                       "range_start" => params[:range_start], 
                       "range_end" => params[:range_end], 
-                      "interval" => params[:interval],
                       "controller_id[]" => params[:controller_id],
                       "zone_number[]" => params[:zone_number],
                       "timestamp" => Time.now.to_i.to_s
                     })
-    uri = parse_uri(@base_uri+"/api/v2/reports/sites/"+params[:site_id].to_s+"/events.json?"+data)
+    uri = parse_uri(@base_uri+"/api/v2/sites/"+params[:site_id].to_s+"/report/events.json?"+data)
     @request = make_get(uri)
     make_request(uri,@request)
   end
-
   
   private
   
@@ -933,7 +929,6 @@ class WeatherMatic
   def secret_api_key
     ENV['SLN_API_SECRET_KEY']
     # '245aa67451c534803dc93e7953ff40b6' # This should be an environment variable for best security - this is not a production key
-    # '245aa67451c534803dc93e7953ffffff'
   end
 
   def make_get(uri)
