@@ -12,8 +12,8 @@ class WeatherMatic
   def initialize(args)
     @username = args[:username]
     @password = args[:password]
-    @base_uri = "https://my.smartlinknetwork.com"
-    # @base_uri = 'http://localhost:3000'
+    # @base_uri = "https://my.smartlinknetwork.com"
+    @base_uri = 'http://localhost:3000'
   end
 
   # All requests are essentially the same - the purpose of this note is really just to show the basic authorization header for reference
@@ -887,14 +887,203 @@ class WeatherMatic
     @request = make_get(uri)
     make_request(uri,@request)
   end
+
+
+  # Water Restrictions will tell you what watering restrictions are in effect for a particular postal code.
+
+  # Usage wm.rules(:postal_code => 12345)
+
+  # {
+  #   "meta": {
+  #     "access": true,
+  #     "hmac": false,
+  #     "success": true,
+  #     "request": {
+  #       "postal_code": "12345",
+  #       "action": "index",
+  #       "controller": "api/v2/water_restrictions",
+  #       "format": "json"
+  #       },
+  #       "message": null
+  #       },
+  #       "result": {
+  #         "water_restrictions": [
+  #           {
+  #             "id": 2,
+  #             "name": "EVERY OTHER DAY",
+  #             "effective_date": "2014-09-02",
+  #             "restriction_end_date": null,
+  #             "period_start_date": null,
+  #             "period_length": 7,
+  #             "period_frequency": 1,
+  #             "days_of_week": 0,
+  #             "criteria": 2,
+  #             "criteria_2": "",
+  #             "zoning": 1,
+  #             "voluntary": false,
+  #             "voluntary_percentage": null,
+  #             "created_at": "2014-09-25T21:16:16Z",
+  #             "updated_at": "2014-10-27T18:38:19Z",
+  #             "checked_at": "2014-10-24T15:24:45Z",
+  #             "authorities": [
+  #               {
+  #                 "name": "Garland Water Department ",
+  #                 "role": 1,
+  #                 "category": 1,
+  #                 "website": "http://www.garlandenvironmentalwaste.com/gov/eg/ews/default.asp",
+  #                 "rebate": "$35 per Zone",
+  #                 "rebate_url": "http://www.texasishot.org/energy-efficiency-rebates/",
+  #                 "address_1": "417 Willowcrest",
+  #                 "address_2": "",
+  #                 "city": "Garland",
+  #                 "state": "Texas",
+  #                 "postal_code": "75040",
+  #                 "latitude": 32.9455,
+  #                 "longitude": -96.6354,
+  #                 "updated_at": "2014-10-28T17:02:37Z"
+  #               }
+  #               ],
+  #               "boundaries": [
+  #                 {
+  #                   "name": "75204",
+  #                   "precedence": 1,
+  #                   "postal_code": "75204",
+  #                   "legal": 2,
+  #                   "city": null,
+  #                   "state": null,
+  #                   "longitude": null,
+  #                   "latitude": null
+  #                   },
+  #                   {
+  #                     "name": "12345",
+  #                     "precedence": 1,
+  #                     "postal_code": "12345",
+  #                     "legal": 3,
+  #                     "city": null,
+  #                     "state": null,
+  #                     "longitude": null,
+  #                     "latitude": null
+  #                     },
+  #                     {
+  #                       "name": "65487",
+  #                       "precedence": 1,
+  #                       "postal_code": "65487",
+  #                       "legal": 1,
+  #                       "city": null,
+  #                       "state": null,
+  #                       "longitude": null,
+  #                       "latitude": null
+  #                       },
+  #                       {
+  #                         "name": "75238",
+  #                         "precedence": 1,
+  #                         "postal_code": "75238",
+  #                         "legal": 1,
+  #                         "city": null,
+  #                         "state": null,
+  #                         "longitude": null,
+  #                         "latitude": null
+  #                       }
+  #                     ]
+  #                     },
+  #                     {
+  #                       "id": 6,
+  #                       "name": "EVERY OTHER DAY",
+  #                       "effective_date": "2014-09-02",
+  #                       "restriction_end_date": null,
+  #                       "period_start_date": null,
+  #                       "period_length": 7,
+  #                       "period_frequency": 3,
+  #                       "days_of_week": 0,
+  #                       "criteria": 1,
+  #                       "criteria_2": "",
+  #                       "zoning": null,
+  #                       "voluntary": false,
+  #                       "voluntary_percentage": null,
+  #                       "created_at": "2014-10-24T16:39:30Z",
+  #                       "updated_at": "2014-10-27T20:43:09Z",
+  #                       "checked_at": "2014-10-24T16:39:30Z",
+  #                       "authorities": [
+  #                         {
+  #                           "name": "Garland Water Department ",
+  #                           "role": 1,
+  #                           "category": 1,
+  #                           "website": "http://www.garlandenvironmentalwaste.com/gov/eg/ews/default.asp",
+  #                           "rebate": "$35 per Zone",
+  #                           "rebate_url": "http://www.texasishot.org/energy-efficiency-rebates/",
+  #                           "address_1": "417 Willowcrest",
+  #                           "address_2": "",
+  #                           "city": "Garland",
+  #                           "state": "Texas",
+  #                           "postal_code": "75040",
+  #                           "latitude": 32.9455,
+  #                           "longitude": -96.6354,
+  #                           "updated_at": "2014-10-28T17:02:37Z"
+  #                         }
+  #                         ],
+  #                         "boundaries": [
+  #                           {
+  #                             "name": "75204",
+  #                             "precedence": 1,
+  #                             "postal_code": "75204",
+  #                             "legal": 2,
+  #                             "city": null,
+  #                             "state": null,
+  #                             "longitude": null,
+  #                             "latitude": null
+  #                             },
+  #                             {
+  #                               "name": "12345",
+  #                               "precedence": 1,
+  #                               "postal_code": "12345",
+  #                               "legal": 3,
+  #                               "city": null,
+  #                               "state": null,
+  #                               "longitude": null,
+  #                               "latitude": null
+  #                               },
+  #                               {
+  #                                 "name": "65487",
+  #                                 "precedence": 1,
+  #                                 "postal_code": "65487",
+  #                                 "legal": 1,
+  #                                 "city": null,
+  #                                 "state": null,
+  #                                 "longitude": null,
+  #                                 "latitude": null
+  #                                 },
+  #                                 {
+  #                                   "name": "75238",
+  #                                   "precedence": 1,
+  #                                   "postal_code": "75238",
+  #                                   "legal": 1,
+  #                                   "city": null,
+  #                                   "state": null,
+  #                                   "longitude": null,
+  #                                   "latitude": null
+  #                                 }
+  #                               ]
+  #                             }
+  #                           ]
+  #                         }
+  #                       }
+
+  def rules(params)
+    data = URI.encode_www_form({
+                      "postal_code" => params[:postal_code]
+                    })
+    uri = parse_uri(@base_uri+"/api/v2/water_restrictions.json?"+data)
+    @request = make_get(uri)
+    make_request(uri,@request)
+  end
   
   private
   
   # This is the generic request - it cannot be called directly
   def make_request(uri,request)
     @http = Net::HTTP.new(uri.host, uri.port)
-    @http.use_ssl = true
-    @http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    # @http.use_ssl = true
+    # @http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     @request = request
     data = @request.method.eql?('GET') ? uri.query : @request.body
     @request["Accept"] = "application/json"
@@ -902,8 +1091,8 @@ class WeatherMatic
     @request['x-api-hmac'] = generate_hmac_string(data)
     @request["x-api-key"] = api_key
     @request.basic_auth(username,password)
-    # puts "request headers are " + @request.to_hash.to_s
-    # puts "request body is " + @request.body.inspect
+    puts "request headers are " + @request.to_hash.to_s
+    puts "request body is " + @request.body.inspect
     response = @http.request(@request)
     return JSON.parse(response.body)
     # puts JSON.parse(response.body)
@@ -922,13 +1111,13 @@ class WeatherMatic
   end
 
   def api_key
-    ENV['SLN_API_KEY']
-    # '998174b6f911b8e95db1c15d1ac59c4f' # This should be an environment variable for best security - this is not a production key
+    # ENV['SLN_API_KEY']
+    '0ecf72cdb0701a083a142bb6cb02dd92' # This should be an environment variable for best security - this is not a production key
   end
 
   def secret_api_key
-    ENV['SLN_API_SECRET_KEY']
-    # '245aa67451c534803dc93e7953ff40b6' # This should be an environment variable for best security - this is not a production key
+    # ENV['SLN_API_SECRET_KEY']
+    'f375c1f9013388fbc0cb01987377f817' # This should be an environment variable for best security - this is not a production key
   end
 
   def make_get(uri)
