@@ -12,8 +12,8 @@ class WeatherMatic
   def initialize(args)
     @username = args[:username]
     @password = args[:password]
-    # @base_uri = "https://my.smartlinknetwork.com"
-    @base_uri = 'http://localhost:3000'
+    @base_uri = "https://my.smartlinknetwork.com"
+    # @base_uri = 'http://localhost:3000'
   end
 
   # All requests are essentially the same - the purpose of this note is really just to show the basic authorization header for reference
@@ -1082,8 +1082,8 @@ class WeatherMatic
   # This is the generic request - it cannot be called directly
   def make_request(uri,request)
     @http = Net::HTTP.new(uri.host, uri.port)
-    # @http.use_ssl = true
-    # @http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    @http.use_ssl = true
+    @http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     @request = request
     data = @request.method.eql?('GET') ? uri.query : @request.body
     @request["Accept"] = "application/json"
@@ -1111,13 +1111,13 @@ class WeatherMatic
   end
 
   def api_key
-    # ENV['SLN_API_KEY']
-    '0ecf72cdb0701a083a142bb6cb02dd92' # This should be an environment variable for best security - this is not a production key
+    ENV['SLN_API_KEY']
+    # '0ecf72cdb0701a083a142bb6cb02dd92' # This should be an environment variable for best security - this is not a production key
   end
 
   def secret_api_key
-    # ENV['SLN_API_SECRET_KEY']
-    'f375c1f9013388fbc0cb01987377f817' # This should be an environment variable for best security - this is not a production key
+    ENV['SLN_API_SECRET_KEY']
+    # 'f375c1f9013388fbc0cb01987377f817' # This should be an environment variable for best security - this is not a production key
   end
 
   def make_get(uri)
